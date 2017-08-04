@@ -1,0 +1,19 @@
+package com.offcn;
+
+import javax.jws.WebService;
+import javax.xml.ws.Endpoint;
+
+@WebService
+public class Server {
+	
+	public String getValue(String name){
+		return "我叫:"+name;
+	}
+	
+	public static void main(String[] args) {
+		String address="http://10.0.0.50:9999/webservice/hello";
+		Endpoint.publish(address, new Server());
+		System.out.println("服务发布成功");
+	}
+
+}
